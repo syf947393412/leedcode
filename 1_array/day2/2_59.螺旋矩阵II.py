@@ -7,7 +7,7 @@ class Solution:
         offset=1
         nums = [[0 for _ in range(n)] for _ in range(n)] #!二维矩阵的初始化
         count=0
-        loop=n//2
+
         while start_i<=n-offset:   #!循环终止条件的确定
 
             for j in range(start_j,n-offset): #!
@@ -42,7 +42,7 @@ class Solution:
         stop_y=len(matrix[0])#4
 
         offset=1
-        loop=min(stop_x,stop_y)//2
+
 
 
         list=[]
