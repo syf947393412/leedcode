@@ -1,0 +1,7 @@
+"""
+push(x) -- 元素 x 入栈
+pop() -- 移除栈顶元素
+top() -- 获取栈顶元素
+empty() -- 返回栈是否为空
+"""
+from collections import deque
