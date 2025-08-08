@@ -11,6 +11,7 @@ class Solution:    #不增加空间复杂度后的思路！
         temp = None
         current = head
 
+
         while current:
             p=current.next
             current.next=temp
