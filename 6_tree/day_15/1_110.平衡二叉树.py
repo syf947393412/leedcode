@@ -8,25 +8,15 @@ class TreeNode:
         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        if self.get_height(root)==-1:
-            return False
-        else:
-            return True
-
-    def get_height(self,root):
         if root is None:
-            return -1
-        left_height=self.get_height(root.left)
-        if left_height==-1:
-            return -1
-        right_height=self.get_height(root.right)
-        if right_height==-1:
-            return -1
-
-        # elif abs(left_height-right_height)<2:  #!
-        if abs(left_height-right_height)>1:
-            return -1
-
+            return True
+        left_height=self.isBalanced(root.left)
+        right_height=self.isBalanced(root.right)
         height=max(left_height,right_height)+1
-        return height
+        if not left_height or not right_height:
+            return False
+        elif abs(left_height-right_height)<2:
+            return True
+        else:
+            return False
 

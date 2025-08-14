@@ -10,3 +10,15 @@ class TreeNode:
 
 class Solution:
     def convertBST(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        self.pre=0  #!pre 是int，只记录前一个的数据就可以了
+        def traversal(root):
+            if root is None:
+                return     #!
+
+            traversal(root.right)
+            root.val+=self.pre
+            self.pre=root.val
+            traversal(root.left)
+
+            return root
+        return traversal(root)
