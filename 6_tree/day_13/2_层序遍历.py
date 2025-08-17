@@ -13,7 +13,7 @@ class Solution:
         if not root:#!
             return []
         result=[]
-        queue=deque([root])  #!
+        queue=deque([root])  #![root]:deque需要iterable
 
         while queue:
             level = []

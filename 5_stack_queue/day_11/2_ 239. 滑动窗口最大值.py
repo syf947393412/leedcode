@@ -7,7 +7,7 @@ class MyQueue:  # 单调队列（从大到小
         self.queue = deque()  # 这里需要使用deque实现单调队列，直接使用list会超时
 
     def pop(self,value):
-        if self.queue and value==self.queue[0]:
+        if self.queue and value==self.queue[0]:  #！
             self.queue.pop()
 
     def push(self,value):
