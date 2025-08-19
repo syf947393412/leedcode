@@ -13,3 +13,7 @@ class Solution:
                 prediff=curdiff   #!③单调坡中有平坡:在if里
         return result
 
+s=Solution()
+nums = [1,2,2,4,4]
+result=s.wiggleMaxLength(nums)
+print(result)
