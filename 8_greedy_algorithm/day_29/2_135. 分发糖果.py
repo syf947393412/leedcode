@@ -14,7 +14,6 @@ class Solution:
         for i in range(len(ratings)-2,-1,-1):
             if ratings[i]>ratings[i+1]:
                 result[i]=max(result[i+1]+1,result[i])
-
         return sum(result)
 
 ratings =[1,0,2]

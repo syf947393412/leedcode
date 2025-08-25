@@ -12,7 +12,7 @@ class Solution:
         #
         # return False
         i=0
-        while i<cover:
+        while i<cover:   #!i只能在cover范围内，到不了cover以外的地方
             cover = max(i + nums[i], cover)
             i+=1
             if cover==len(nums)-1:
