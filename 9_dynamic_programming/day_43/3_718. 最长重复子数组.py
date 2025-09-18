@@ -22,5 +22,6 @@ class Solution:
 
 nums1 = [1,2,3,2,1]
 nums2 = [3,2,1,4,7]
+# nums2 = [3,4,2,1,7]
 so=Solution()
 print(so.findLength(nums1,nums2))
