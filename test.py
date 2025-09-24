@@ -1,28 +1,16 @@
-from typing import List
+#(不偷，偷)
+def postorder(tree):
+    if tree==None:
+        return (0,0)
+    left=postorder(tree.left)
+    right=postorder(tree.right)
+    #偷：
+    dp1=left[0]+tree.val+right[0]
+    #不偷：
+    dp0=max(left[1],right[1])
+    dp0=max(left[0], left[1]) + max(right[0], right[1])
+
+    return (dp0,dp1)
 
 
-class Solution:
-    def permute(self, nums: List[int]) -> List[List[int]]:
-        result = []
-        used = [0] * len(nums)
-        self.backtracing(nums, [], result, used)  #
-        return result
 
-    def backtracing(self, nums, path, result, used):  #
-        if len(path) == len(nums):
-            result.append(path)
-            return
-
-        for i in range(0, len(nums)):
-            if used[i] == 0:
-                path.append(nums[i])
-                used[i] = 1
-                self.backtracing(nums, path, result, used)
-                used[i] = 0
-                path.pop()
-
-        return
-
-nums = [1,2,3]
-so=Solution()
-print(so.permute(nums))
