@@ -1,16 +1,39 @@
-#(不偷，偷)
-def postorder(tree):
-    if tree==None:
-        return (0,0)
-    left=postorder(tree.left)
-    right=postorder(tree.right)
-    #偷：
-    dp1=left[0]+tree.val+right[0]
-    #不偷：
-    dp0=max(left[1],right[1])
-    dp0=max(left[0], left[1]) + max(right[0], right[1])
+from typing import Optional, List
 
-    return (dp0,dp1)
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        if root.left==None and root.right==None:
+            return True
+        if root.val<root.left.val or root.val>root.right.val:
+            return False
+
+        left_bool=self.isValidBST(root.left)
+        right_bool=self.isValidBST(root.right)
+        if left_bool and right_bool and root.val>root.left.val and root.val<root.right.val:
+            return True
+        return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

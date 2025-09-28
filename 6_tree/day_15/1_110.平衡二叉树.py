@@ -10,13 +10,25 @@ class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         if root is None:
             return True
-        left_height=self.isBalanced(root.left)
-        right_height=self.isBalanced(root.right)
-        height=max(left_height,right_height)+1
-        if not left_height or not right_height:
+        if self.getHeight(root)==-1:
             return False
-        elif abs(left_height-right_height)<2:
-            return True
         else:
-            return False
+            return True
+
+    def getHeight(self,root):
+        if root is None:
+            return 0
+
+        left=self.getHeight(root.left)
+        if left==-1:
+            return -1
+        right=self.getHeight(root.right)
+        if right==-1:
+            return -1
+        if abs(left-right)>1:
+            return -1
+        else:
+            return 1+max(left,right)
+
+
 
